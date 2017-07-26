@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>vue.js</title>
+    <script src="js/vue.min.js"></script>
+</head>
+<body>
+<!--v-on 指令绑定一个事件监听器，通过它调用我们 Vue 实例中定义的方法-->
+<div id="app">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">逆转消息</button>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            message: "Hello Vue.js!"
+        },
+        methods: {
+            reverseMessage: function () {
+                this.message = this.message.split('').reverse().join('')
+            }
+        }
+    });
+// 在 reverseMessage 方法中，我们更新了应用的状态，
+// 但没有触碰 DOM——所有的 DOM 操作都由 Vue 来处理，你编写的代码不需要关注底层逻辑。
+</script>
+</body>
+</html>

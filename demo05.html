@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vue.min.js"></script>
+</head>
+<body>
+<!--整数迭代 v-for-->
+<!--在1.0版，0~9 在2.0版是1~10。-->
+<div id="app">
+    <span v-for="n in 10">{{ n }}</span>
+</div>
+<script>
+    var example = new Vue({
+        el: '#app'
+    })
+</script>
+</body>
+</html>

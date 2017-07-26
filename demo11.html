@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>vue.js</title>
+    <script src="js/vue.min.js"></script>
+</head>
+<body>
+<!--v-html指令用于输出html代码-->
+<div id="app">
+    <div v-html="message"></div>
+</div>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            message: "<h1>hello world!</h1>"
+        }
+    });
+</script>
+</body>
+</html>

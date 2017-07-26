@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>vue.js</title>
+    <script src="js/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>点击次数：{{total}}</p>
+    <button v-on:click="incrementTotal">点击</button>
+    <br/>
+    <button-counter></button-counter>
+    <button-counter v-on:increment="incrementTotal"></button-counter>
+</div>
+<script>
+    //子组件
+    Vue.component('button-counter', {
+        template: '<button v-on:click="increment">{{counter}}</button>',
+        data: function () {
+            return {
+                counter: 0
+            }
+        },
+        methods: {
+            increment: function () {
+                this.counter += 1;
+                this.$emit('increment');
+            }
+        }
+    });
+    new Vue({
+        el: '#app',
+        data: {
+            total: 0
+        },
+        methods: {
+            incrementTotal: function () {
+                this.total += 1;
+            }
+        }
+    });
+</script>
+</body>
+</html>

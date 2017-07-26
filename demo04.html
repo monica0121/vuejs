@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vue.min.js"></script>
+</head>
+<body>
+<!--对象迭代 v-for-->
+<div id="app">
+    <ul id="example">
+        <li v-for="value in object">
+            {{ value }}
+        </li>
+    </ul>
+    <script>
+        var example = new Vue({
+            el: '#example',
+            data: {
+               object: {
+                   FistName: 'John',
+                   LastName: 'Doe',
+                   Age: 30
+               }
+            }
+        })
+    </script>
+</div>
+</body>
+</html>

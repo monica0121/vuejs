@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>vue.js</title>
+    <script src="js/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--全局组件-->
+    <runoob></runoob>
+    <!--局部组件-->
+    <runoob2></runoob2>
+
+    <fun message="hello"></fun>
+
+    <input type="text" v-model="parentMsg"/>
+    <child v-bind:message="parentMsg"></child>
+
+    <ol>
+       <todo-item v-for="item in items" v-bind:todo="item"></todo-item>
+    </ol>
+</div>
+<script>
+    //注册
+    Vue.component('runoob',{
+        template: '<h1>全局组件的注册与使用</h1>'
+    });
+
+    var child = {
+        template: '<h1>局部组件的注册与使用</h1>'
+    };
+
+    //props自定义属性
+    Vue.component('fun', {
+        props: ["message"],
+        template: "<span>{{message}}</span>"
+    });
+    //动态props
+    Vue.component('child', {
+        props: ['message'],
+        template: '<span>{{message}}</span>'
+    });
+
+    //v-bind将todo传递到每一个重复的组件中
+    Vue.component('todo-item', {
+        props: ['todo'],
+        template: '<li>{{todo.text}}</li>'
+    });
+    //创建根实例
+    new Vue({
+        el: '#app',
+        components: {
+            runoob2: child
+        },
+        data: {
+            parentMsg: '父组件内容',
+            items: [
+                {text: 'Runoob'},
+                {text: 'Google'}
+            ]
+        }
+    });
+</script>
+</body>
+</html>

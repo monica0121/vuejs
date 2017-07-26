@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vue.min.js"></script>
+</head>
+<body>
+<!--v-for 指令可以绑定数组的数据来渲染一个项目列表-->
+<!--在2.0版中，$index已废除，索引 (item,index)。-->
+<div id="app">
+    <ul id="example">
+        <li v-for="(item, index) in items">
+            {{ parentMessage }} - {{ index }} - {{ item.message }}
+        </li>
+    </ul>
+    <script>
+        var example2 = new Vue({
+            el: '#example',
+            data: {
+                parentMessage: '菜鸟教程官网',
+                items: [
+                    { message: 'www.runoob.com' },
+                    { message: 'www.w3cschool.cc' }
+                ]
+            }
+        })
+    </script>
+</div>
+</body>
+</html>
